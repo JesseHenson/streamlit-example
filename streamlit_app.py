@@ -12,10 +12,29 @@ from pypdf import PdfReader
 1. Please enter your OpenAI API Key to use the app
 """
 
-questions = {"Likelihood" : """
-    How well do my skills fit this job on a scale from 1-100? Again only output a single number score.
-        """     
+questions = {"Fitness Score" : """
+    How well do my skills fit this job on a scale from 1-100? Only output a single number score.
+        """,
+    "Fairness" : """
+
+    """ ,
+    "Cover Letter" : """""",
+    "Gaps" : """""",
+    "Day-to-day Activities" : """"""
     }
+
+
+# TODO: Add fairness 
+    # - salary of comparable jobs
+    # - use search engine to get keywords of job description into a browse the web
+# TODO: Add Cover Letter generation 
+    # - Generate a cover letter - style or brand
+# TODO: Add Gaps 
+    # - Compare job description resposibilities with resume and identify gaps
+# TODO: Add bullets about day-to-day work on that particular job 
+    # - generate bullets of day to day work on that particular job
+
+
 
 job_description_example = '''
 The project is to analyze the nonces submitted by different types of hardware and create an identifying signature for each of the hardware.
@@ -71,5 +90,4 @@ if resume_retriever is not None and job_description != "" and job_description is
                      'context':job_description
                      })
     st.write(result)
-
 
