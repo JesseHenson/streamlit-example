@@ -13,26 +13,21 @@ from pypdf import PdfReader
 """
 
 questions = {"Fitness Score" : """
-    How well do my skills fit this job on a scale from 1-100? Only output a single number score.
+    How well do my skills fit this job on a scale from 1-100? Only output a single number score. If you cannot calculate a score put N/A.
         """,
-    "Fairness" : """
-
+    "Estimated Salary" : """
+    Give an estimated salary for this job based on the job description and explain the resposnibilities that it might ential. 
     """ ,
-    "Cover Letter" : """""",
-    "Gaps" : """""",
-    "Day-to-day Activities" : """"""
+    "Cover Letter" : """
+    Use the information from the resume to create a well written cover letter for the described job position.
+""",
+    "Gaps" : """
+    Use the informaiton in the resume to create a list of gaps in the users experience
+""",
+    "Day-to-day Activities" : """
+    Use the information in the job description to create a list of day-to-day activities that the user might have to do in the described job position.
+"""
     }
-
-
-# TODO: Add fairness 
-    # - salary of comparable jobs
-    # - use search engine to get keywords of job description into a browse the web
-# TODO: Add Cover Letter generation 
-    # - Generate a cover letter - style or brand
-# TODO: Add Gaps 
-    # - Compare job description resposibilities with resume and identify gaps
-# TODO: Add bullets about day-to-day work on that particular job 
-    # - generate bullets of day to day work on that particular job
 
 
 
@@ -59,7 +54,7 @@ if open_ai_api_key != "":
     llm = ChatOpenAI(model_name="gpt-4", api_key=open_ai_api_key, temperature=0)
 
 
-if open_ai_api_key != "" and job_description != "":
+if open_ai_api_key != "":
     st.write("2. You can now upload your resume")
     pdf = st.file_uploader("Upload your PDF", type='pdf')
     if pdf is not None and open_ai_api_key != "":
@@ -86,8 +81,11 @@ def format_docs(docs):
 if resume_retriever is not None and job_description != "" and job_description is not None and open_ai_api_key is not None:
     qa = RetrievalQA.from_chain_type(llm=llm, chain_type="refine", retriever=resume_retriever, return_source_documents=False)
     st.write("Calculating the score")
-    result = qa.run({'query': questions["Likelihood"], 
-                     'context':job_description
-                     })
-    st.write(result)
+    for category, question in questions.items():
+        result = qa.run({'query': question, 
+                        'context':job_description
+                        })
+        st.write(category, ":", result)
+  
+
 
