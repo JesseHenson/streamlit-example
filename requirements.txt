@@ -1,3 +1,5 @@
-altair
-pandas
-streamlit
+langchain==0.1.7
+langchain_community==0.0.20
+langchain_openai==0.0.6
+pypdf==4.0.1
+streamlit==1.31.0
