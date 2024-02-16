@@ -9,4 +9,4 @@
 > - Day to Day Activity
 
 
-[![IMAGE ALT TEXT HERE](./upwork'd_screenshot.png)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+![](https://github.com/jessehenson/upworkd_ai.gif)
