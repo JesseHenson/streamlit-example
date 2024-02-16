@@ -1,6 +1,12 @@
-# Welcome to Streamlit!
+# Welcome to Upwork'd.AI
+### Making your Freelance Job Search Instantaneous!!!
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire. :heart:
+> ### Feature:
+> - Job Fitness Score
+> - Expected Salary
+> - Cover Letter
+> - Experience Gaps 
+> - Day to Day Activity
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
